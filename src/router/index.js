@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import TriviaView from '../views/TriviaView.vue'
-import DogView from '../views/DogView.vue'
+
+
 import QuizView from '../views/QuizView.vue'
 Vue.use(VueRouter)
 
@@ -17,16 +17,8 @@ const routes = [
     name: 'quiz',
     component: QuizView
   },
-  {
-    path: '/trivia',
-    name: 'trivia',
-    component: TriviaView
-  },
-  {
-    path: '/dog',
-    name: 'dog',
-    component: DogView
-  },
+ 
+  
   {
     path: '/about',
     name: 'about',
