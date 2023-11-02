@@ -1,4 +1,4 @@
-# joke-app
+# music-theory-app
 
 ## Project setup
 ```
