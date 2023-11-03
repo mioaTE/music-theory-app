@@ -76,8 +76,8 @@ export default {
   },
 };
 </script>
-  
-  <style>
-/* Add your CSS styling here if needed */
+
+<style>
+
 </style>
   
