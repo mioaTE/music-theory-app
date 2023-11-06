@@ -78,6 +78,24 @@ export default new Vuex.Store({
                 imageUrl: 'dottedhalfnote.jpg',
             },
           ],
+          questions2: [
+            {
+              id: 1,
+              question: 'questions2',
+              options: ['Treble Clef', 'Base Clef', 'Alto Clef', 'Tenor Clef'],
+              answer: 0, 
+              imageUrl: 'trebleclef.jpg',
+            },
+        ],
+        questions3: [
+            {
+              id: 1,
+              question: 'questions3',
+              options: ['Treble Clef', 'Base Clef', 'Alto Clef', 'Tenor Clef'],
+              answer: 0, 
+              imageUrl: 'trebleclef.jpg',
+            },
+        ],
     },
     mutations: {
         

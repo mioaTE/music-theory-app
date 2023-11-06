@@ -19,18 +19,9 @@ export default {
       this.$store.commit('updateLevel', level); // Store the selected level in a data property
     },
     startQuiz() {
-    if (this.$store.state.level === 1) {
       // Start Level 1 quiz
-      this.$router.push({ name: 'level1-quiz' });
-    } else if (this.$store.state.level === 2) {
-      // Start Level 2 quiz
-      this.$router.push({ name: 'level2-quiz' });
-    } else if (this.$store.state.level === 3) {
-      // Start Level 3 quiz
-      this.$router.push({ name: 'level3-quiz' });
-    }
-  },
-
+      this.$router.push({ name: 'quiz' });
+    } 
   },
   data() {
     return {

@@ -45,8 +45,16 @@ export default {
   },
   computed: {
     questions() {
+    if (this.$store.state.level === 1) {
       return this.$store.state.questions1;
-    },
+    } else if (this.$store.state.level === 2) {
+      return this.$store.state.questions2;
+    } else if (this.$store.state.level === 3) {
+      return this.$store.state.questions3;
+    }
+    // Handle other levels or return a default value if necessary
+    return [];
+  },
     currentQuestion() {
       return this.questions[this.currentQuestionIndex];
     },
