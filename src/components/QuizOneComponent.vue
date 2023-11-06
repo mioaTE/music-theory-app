@@ -16,19 +16,21 @@
         />
         <label :for="'option_' + index">{{ option }}</label>
       </div>
-      <button @click="submitAnswer">Submit</button>
+      <button @click="submitAnswer" :disabled="answered">Submit</button>
       <p :style="{ color: feedbackColor }">{{ feedbackMessage }}</p>
     </div>
-    <div v-else>
-      <p>Congratulations! You have completed the quiz.</p>
+    
+    <div v-if="showNextButton">
+      <p>Your Score: {{ score }}/10</p>
+      <button @click="nextQuestion">Go to Next Question</button>
     </div>
-    <button v-if="showNextButton" @click="nextQuestion">
-      Go to Next Question
-    </button>
+    <div v-else>
+      <p>Your Final Score: {{ score }}/10</p>
+    </div>
   </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
   name: "quiz-questions",
   data() {
@@ -37,6 +39,8 @@ export default {
       selectedAnswer: null,
       feedbackColor: "black", // Default color
       feedbackMessage: "",
+      answered: false, // Track whether the question has been answered
+      score: 0, // Initialize the score
     };
   },
   computed: {
@@ -52,15 +56,19 @@ export default {
   },
   methods: {
     submitAnswer() {
-      if (this.selectedAnswer !== null) {
+      if (!this.answered && this.selectedAnswer !== null) {
         const selectedAnswerInt = parseInt(this.selectedAnswer, 10);
         const isCorrect = selectedAnswerInt === this.currentQuestion.answer;
 
         if (isCorrect) {
           this.setFeedback("Correct! Good job.", "green");
+          this.score++; // Increase the score for correct answers
         } else {
           this.setFeedback("Oops, that was incorrect. Try again!", "red");
         }
+
+        // Disable the "Submit" button after answering
+        this.answered = true;
       }
     },
     setFeedback(message, color) {
@@ -70,14 +78,10 @@ export default {
     nextQuestion() {
       this.selectedAnswer = null;
       this.currentQuestionIndex++;
-      this.feedbackMessage = ""; // Clear feedback when moving to the next question
-      this.feedbackColor = "black"; // Reset the feedback color
+      this.feedbackMessage = "";
+      this.feedbackColor = "black";
+      this.answered = false;
     },
   },
 };
 </script>
-
-<style>
-
-</style>
-  
