@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     questions() {
-      return this.$store.state.questions;
+      return this.$store.state.questions1;
     },
     currentQuestion() {
       return this.questions[this.currentQuestionIndex];

@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        questions: [
+        level: null,
+        questions1: [
             {
               id: 1,
               question: 'What is the name of this symbol?',
@@ -78,7 +79,13 @@ export default new Vuex.Store({
             },
           ],
     },
-    mutations: {},
+    mutations: {
+        
+            updateLevel(state, level) {
+              state.level = level;
+            },
+
+    },
     actions: {},
     modules: {}
   });
