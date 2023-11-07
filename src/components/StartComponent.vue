@@ -76,27 +76,4 @@ button:hover {
   transition: background-color 0.3s;
 }
 
-button:disabled {
-  background-color: #a0a0a0; /* Gray for disabled */
-  cursor: not-allowed;
-}
-
-button.start-button {
-  background-color: #68BBE3; /* Baby Blue */
-}
-
-button.start-button:hover {
-  background-color: #003060; /* Navy Blue */
-}
-
-/* Additional styling for the 'Start' button */
-button.start-button {
-  margin-top: 20px;
-}
-
-/* Styling for the 'Start Quiz' text */
-button.start-button span {
-  font-weight: bold;
-  font-size: 18px;
-}
 </style>
