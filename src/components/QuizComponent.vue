@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script>
+<script> 
 export default {
   name: "quiz-questions",
   data() {
@@ -72,7 +72,7 @@ export default {
           this.setFeedback("Correct! Good job.", "green");
           this.score++; // Increase the score for correct answers
         } else {
-          this.setFeedback("Oops, that was incorrect. Try again!", "red");
+          this.setFeedback("Oops, that was incorrect.", "red");
         }
 
         // Disable the "Submit" button after answering
@@ -93,3 +93,71 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.questions {
+  text-align: center;
+  padding: 20px;
+  background-color: #D4F1F4; /* Baby Blue */
+  border: 2px solid #05445E; /* Navy Blue */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 24px;
+  color: #05445E; /* Navy Blue */
+}
+
+.question {
+  background-color: #189AB4; /* Blue Grotto */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 18px;
+  color: #05445E; /* Navy Blue */
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+label {
+  color: #05445E; /* Navy Blue */
+  font-weight: bold;
+}
+
+button {
+  background-color: #75E6DA; /* Blue Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:disabled {
+  background-color: #a0a0a0; /* Gray for disabled */
+  cursor: not-allowed;
+}
+
+p {
+  font-size: 16px;
+  font-weight: bold;
+}
+</style>

@@ -1,32 +1,53 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <div class="header">
+      <div class="title">
+        <h1>MUSIC THEORY QUIZ</h1>
+      </div>
+      <div class="nav">
+        <router-link to="/" class="nav-link">Home</router-link> 
+        <router-link to="/about" class="nav-link">About</router-link>
+      </div>
+    </div>
+    <router-view />
   </div>
 </template>
 
-<style>
-#app {
+<style scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #D4F1F4;
+  background-color: #75E6DA;
+  padding: 10px 20px; /* Adjust padding as needed */
 }
 
-nav {
-  padding: 30px;
+.title {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 10px; /* Adjust font size as needed */
 }
 
-nav a {
+.nav {
+  display: flex;
+  
+}
+
+.nav-link:hover {
+  color: #D4F1F4; 
+  transition: background-color 0.3s;
+}
+.nav-link{
   font-weight: bold;
   color: #2c3e50;
+  margin: 10px; /* Adjust margin as needed */
+  text-decoration: none;
+
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+
 </style>
