@@ -37,10 +37,10 @@ export default {
     return {
       currentQuestionIndex: 0,
       selectedAnswer: null,
-      feedbackColor: "black", // Default color
+      feedbackColor: "black", 
       feedbackMessage: "",
-      answered: false, // Track whether the question has been answered
-      score: 0, // Initialize the score
+      answered: false, 
+      score: 0, 
     };
   },
   computed: {
@@ -52,7 +52,7 @@ export default {
     } else if (this.$store.state.level === 3) {
       return this.$store.state.questions3;
     }
-    // Handle other levels or return a default value if necessary
+    
     return [];
   },
     currentQuestion() {
@@ -70,12 +70,12 @@ export default {
 
         if (isCorrect) {
           this.setFeedback("Correct! Good job.", "green");
-          this.score++; // Increase the score for correct answers
+          this.score++; 
         } else {
           this.setFeedback("Oops, that was incorrect.", "red");
         }
 
-        // Disable the "Submit" button after answering
+        
         this.answered = true;
       }
     },

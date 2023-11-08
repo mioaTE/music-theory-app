@@ -15,12 +15,9 @@
 export default {
   methods: {
     selectLevel(level) {
-      // You can store the selected level in a data property or Vuex store
-      // and use it when starting the quiz.
-      this.$store.commit('updateLevel', level); // Store the selected level in a data property
+      this.$store.commit('updateLevel', level); 
     },
     startQuiz() {
-      // Start Level 1 quiz
       this.$router.push({ name: 'quiz' });
     } 
   },

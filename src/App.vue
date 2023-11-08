@@ -24,12 +24,12 @@
   text-align: center;
   color: #D4F1F4;
   background-color: #75E6DA;
-  padding: 10px 20px; /* Adjust padding as needed */
+  padding: 10px 20px; 
 }
 
 .title {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 10px; /* Adjust font size as needed */
+  font-size: 10px; 
 }
 
 .nav {
@@ -44,7 +44,7 @@
 .nav-link{
   font-weight: bold;
   color: #2c3e50;
-  margin: 10px; /* Adjust margin as needed */
+  margin: 10px; 
   text-decoration: none;
 
 }
