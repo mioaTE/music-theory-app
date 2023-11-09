@@ -1,28 +1,39 @@
 <template>
-  <div class="questions">
-    <h1>Question No.{{ currentQuestion.id }}</h1>
+  <div class="box">
     <div class="question" v-if="currentQuestion">
-      <h2>{{ currentQuestion.question }}</h2>
-      <img
-        :src="require('@/assets/' + currentQuestion.imageUrl)"
-        alt="Question Image"
-      />
-      <div v-for="(option, index) in currentQuestion.options" :key="index">
-        <input
-          type="radio"
-          :id="'option_' + index"
-          :value="index"
-          v-model="selectedAnswer"
+      <div class="questionAndImg">
+        <h1 class="questionNumber">Question No.{{ currentQuestion.id }}</h1>
+        <h1>{{ currentQuestion.question }}</h1>
+        <img
+          :src="require('@/assets/' + currentQuestion.imageUrl)"
+          alt="Question Image"
         />
-        <label :for="'option_' + index">{{ option }}</label>
       </div>
-      <button @click="submitAnswer" :disabled="answered">Submit</button>
-      <p :style="{ color: feedbackColor }">{{ feedbackMessage }}</p>
+      <div class="optionsAndSubmit">
+        <div class="options">
+          <div v-for="(option, index) in currentQuestion.options" :key="index">
+            <input class="option"
+              type="radio"
+              :id="'option_' + index"
+              :value="index"
+              v-model="selectedAnswer"
+            />
+            <label :for="'option_' + index">{{ option }}</label>
+          </div>
+        </div>
+
+        <button class="submitButton" @click="submitAnswer" :disabled="answered">
+          Submit
+        </button>
+        <p class="msg" :style="{ color: feedbackColor }">{{ feedbackMessage }}</p>
+      </div>
     </div>
 
     <div v-if="showNextButton">
-      <p>Your Score: {{ score }}/10</p>
-      <button @click="nextQuestion">Go to Next Question</button>
+      <p class="score">Your Score: {{ score }}/10</p>
+      <button class="nextButton" @click="nextQuestion">
+        Go to Next Question
+      </button>
     </div>
   </div>
 </template>
@@ -89,40 +100,44 @@ export default {
       this.answered = false;
     },
     goToResult() {
-        this.$router.push({ name: "result", params: { score: this.score } });
+      this.$router.push({ name: "result", params: { score: this.score } });
     },
   },
 };
 </script>
 
 <style scoped>
-.questions {
-  text-align: center;
+
+.box {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  text-align: left;
   padding: 20px;
   background-color: #d4f1f4; /* Baby Blue */
-  border: 2px solid #05445e; /* Navy Blue */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
   margin: 0 auto;
+}
+
+.question {
+  display: flex;
+  flex: 1;
+  background-color: #189ab4; /* Blue Grotto */
+  padding: 20px;
+  border-radius: 10px;
+  margin-right: 20px; 
+}
+.questionAndImg{
+  margin: 0px 0px 0px 100px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  font-size: 22px;
 }
 
 h1 {
   font-size: 24px;
   color: #05445e; /* Navy Blue */
-}
-
-.question {
-  background-color: #189ab4; /* Blue Grotto */
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-h2 {
-  font-size: 18px;
-  color: #05445e; /* Navy Blue */
-  margin-bottom: 10px;
 }
 
 img {
@@ -131,17 +146,25 @@ img {
   margin: 10px 0;
 }
 
+
 input[type="radio"] {
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   vertical-align: middle;
+
 }
 
 label {
   color: #05445e; /* Navy Blue */
   font-weight: bold;
+  /* display: block; */
+  margin-bottom: 10px;
 }
-
-button {
+.optionsAndSubmit{
+  margin: 50px 10px 50px 400px;
+}
+.submitButton {
   background-color: #75e6da; /* Blue Green */
   color: white;
   border: none;
@@ -152,13 +175,28 @@ button {
   margin-top: 10px;
 }
 
-button:disabled {
-  background-color: #a0a0a0; /* Gray for disabled */
-  cursor: not-allowed;
+.nextButton {
+  background-color: #75e6da; /* Blue Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
-p {
-  font-size: 16px;
+.msg {
+  font-size: 25px;
   font-weight: bold;
+}
+.score {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #05445E; /* Navy Blue */
+  transition: background-color 0.3s;
 }
 </style>
