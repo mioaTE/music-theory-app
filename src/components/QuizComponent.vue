@@ -19,42 +19,39 @@
       <button @click="submitAnswer" :disabled="answered">Submit</button>
       <p :style="{ color: feedbackColor }">{{ feedbackMessage }}</p>
     </div>
-    
+
     <div v-if="showNextButton">
       <p>Your Score: {{ score }}/10</p>
       <button @click="nextQuestion">Go to Next Question</button>
     </div>
-    <div v-else>
-      <p>Your Final Score: {{ score }}/10</p>
-    </div>
   </div>
 </template>
 
-<script> 
+<script>
 export default {
   name: "quiz-questions",
   data() {
     return {
       currentQuestionIndex: 0,
       selectedAnswer: null,
-      feedbackColor: "black", 
+      feedbackColor: "black",
       feedbackMessage: "",
-      answered: false, 
-      score: 0, 
+      answered: false,
+      score: 0,
     };
   },
   computed: {
     questions() {
-    if (this.$store.state.level === 1) {
-      return this.$store.state.questions1;
-    } else if (this.$store.state.level === 2) {
-      return this.$store.state.questions2;
-    } else if (this.$store.state.level === 3) {
-      return this.$store.state.questions3;
-    }
-    
-    return [];
-  },
+      if (this.$store.state.level === 1) {
+        return this.$store.state.questions1;
+      } else if (this.$store.state.level === 2) {
+        return this.$store.state.questions2;
+      } else if (this.$store.state.level === 3) {
+        return this.$store.state.questions3;
+      }
+
+      return [];
+    },
     currentQuestion() {
       return this.questions[this.currentQuestionIndex];
     },
@@ -70,13 +67,14 @@ export default {
 
         if (isCorrect) {
           this.setFeedback("Correct! Good job.", "green");
-          this.score++; 
+          this.score++;
         } else {
           this.setFeedback("Oops, that was incorrect.", "red");
         }
-
-        
         this.answered = true;
+        if (this.currentQuestionIndex == this.questions.length - 1) {
+          this.goToResult();
+        }
       }
     },
     setFeedback(message, color) {
@@ -90,6 +88,9 @@ export default {
       this.feedbackColor = "black";
       this.answered = false;
     },
+    goToResult() {
+        this.$router.push({ name: "result", params: { score: this.score } });
+    },
   },
 };
 </script>
@@ -98,8 +99,8 @@ export default {
 .questions {
   text-align: center;
   padding: 20px;
-  background-color: #D4F1F4; /* Baby Blue */
-  border: 2px solid #05445E; /* Navy Blue */
+  background-color: #d4f1f4; /* Baby Blue */
+  border: 2px solid #05445e; /* Navy Blue */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   max-width: 600px;
@@ -108,11 +109,11 @@ export default {
 
 h1 {
   font-size: 24px;
-  color: #05445E; /* Navy Blue */
+  color: #05445e; /* Navy Blue */
 }
 
 .question {
-  background-color: #189AB4; /* Blue Grotto */
+  background-color: #189ab4; /* Blue Grotto */
   padding: 20px;
   border-radius: 10px;
   margin: 20px 0;
@@ -120,7 +121,7 @@ h1 {
 
 h2 {
   font-size: 18px;
-  color: #05445E; /* Navy Blue */
+  color: #05445e; /* Navy Blue */
   margin-bottom: 10px;
 }
 
@@ -136,12 +137,12 @@ input[type="radio"] {
 }
 
 label {
-  color: #05445E; /* Navy Blue */
+  color: #05445e; /* Navy Blue */
   font-weight: bold;
 }
 
 button {
-  background-color: #75E6DA; /* Blue Green */
+  background-color: #75e6da; /* Blue Green */
   color: white;
   border: none;
   border-radius: 5px;

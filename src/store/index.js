@@ -25,14 +25,14 @@ export default new Vuex.Store({
                 id: 3,
                 question: 'What is the meaning of this symbol?',
                 options: ['loud', 'Soft', 'Very Loud', 'Very Soft'],
-                answer: 1,
+                answer: 0,
                 imageUrl: 'forte.jpg',
             },
             {
                 id: 4,
                 question: 'What is the meaning of this symbol?',
                 options: ['loud', 'Soft', 'Very Loud', 'Very Soft'],
-                answer: 2,
+                answer: 1,
                 imageUrl: 'piano.jpg',
               },
             

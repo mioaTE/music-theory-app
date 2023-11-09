@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 
 
 import QuizView from '../views/QuizView.vue'
+import ResultView from '../views/ResultView.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,11 @@ const routes = [
     path: '/quiz',
     name: 'quiz',
     component: QuizView
+  },
+  {
+    path: '/result',
+    name: 'result',
+    component: ResultView
   },
   
  
