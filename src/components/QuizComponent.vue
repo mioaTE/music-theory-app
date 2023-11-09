@@ -77,8 +77,8 @@ export default {
   },
   methods: {
     submitAnswer() {
-      if (!this.answered && this.selectedAnswer !== null) {
-        const selectedAnswerInt = parseInt(this.selectedAnswer, 10);
+      if (!this.answered && this.selectedAnswer !== null) {//if it's answered
+        const selectedAnswerInt = parseInt(this.selectedAnswer, 10); //convert to decimal (base-10)number
         const isCorrect = selectedAnswerInt === this.currentQuestion.answer;
 
         if (isCorrect) {
