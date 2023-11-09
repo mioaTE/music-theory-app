@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div v-if="showNextButton">
+    <div class="scoreAndNext" v-if="showNextButton">
       <p class="score">Your Score: {{ score }}/10</p>
       <button class="nextButton" @click="nextQuestion">
         Go to Next Question
@@ -198,9 +198,15 @@ label {
   font-size: 25px;
   font-weight: bold;
 }
+.scoreAndNext{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .score {
   font-size: 23px;
   font-weight: bold;
+  margin-bottom:60px;
 }
 
 button:hover {
