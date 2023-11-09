@@ -166,7 +166,6 @@ input[type="radio"] {
 label {
   color: #05445e; /* Navy Blue */
   font-weight: bold;
-  /* display: block; */
   margin-bottom: 10px;
 }
 .optionsAndSubmit{
@@ -197,8 +196,9 @@ label {
 .msg {
   font-size: 25px;
   font-weight: bold;
-  margin: 160px 0px 0px 0px;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .score {
   font-size: 23px;
