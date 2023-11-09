@@ -25,8 +25,9 @@
         <button class="submitButton" @click="submitAnswer" :disabled="answered">
           Submit
         </button>
-        <p class="msg" :style="{ color: feedbackColor }">{{ feedbackMessage }}</p>
       </div>
+        <p class="msg" :style="{ color: feedbackColor }">{{ feedbackMessage }}</p>
+      
     </div>
 
     <div v-if="showNextButton">
@@ -109,6 +110,7 @@ export default {
 <style scoped>
 
 .box {
+  min-height: 83vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   text-align: left;
@@ -118,21 +120,28 @@ export default {
 }
 
 .question {
-  display: flex;
+  display:flex;
   flex: 1;
   background-color: #189ab4; /* Blue Grotto */
   padding: 20px;
   border-radius: 10px;
-  margin-right: 20px; 
+  margin-right: 20px;
+  
 }
 .questionAndImg{
-  margin: 0px 0px 0px 100px;
+  margin: 0px 0px 0px 0px;
+  display: flex;
+  flex-direction:column ;
+  align-items: center;
+  justify-content: center;
+  width:450px
 }
 
 .options {
   display: flex;
   flex-direction: column;
   font-size: 22px;
+  margin: 100px 60px 0px 0px;
 }
 
 h1 {
@@ -141,9 +150,8 @@ h1 {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  margin: 10px 0;
+  width:250px;
+  height: 250px;
 }
 
 
@@ -162,7 +170,7 @@ label {
   margin-bottom: 10px;
 }
 .optionsAndSubmit{
-  margin: 50px 10px 50px 400px;
+  margin: 50px 0px 0px 10px;
 }
 .submitButton {
   background-color: #75e6da; /* Blue Green */
@@ -189,6 +197,8 @@ label {
 .msg {
   font-size: 25px;
   font-weight: bold;
+  margin: 160px 0px 0px 0px;
+  
 }
 .score {
   font-size: 23px;
@@ -200,3 +210,5 @@ button:hover {
   transition: background-color 0.3s;
 }
 </style>
+
+
