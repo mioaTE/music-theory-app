@@ -1,18 +1,20 @@
 <template>
   <div class="box">
     <div class="question" v-if="currentQuestion">
+      <h1 class="questionNumber">Question No.{{ currentQuestion.id }}</h1>
       <div class="questionAndImg">
-        <h1 class="questionNumber">Question No.{{ currentQuestion.id }}</h1>
         <h1>{{ currentQuestion.question }}</h1>
         <img
           :src="require('@/assets/' + currentQuestion.imageUrl)"
           alt="Question Image"
         />
       </div>
-      <div class="optionsAndSubmit">
+
+      <div class="optionSubmitMsg">
         <div class="options">
           <div v-for="(option, index) in currentQuestion.options" :key="index">
-            <input class="option"
+            <input
+              class="option"
               type="radio"
               :id="'option_' + index"
               :value="index"
@@ -25,9 +27,11 @@
         <button class="submitButton" @click="submitAnswer" :disabled="answered">
           Submit
         </button>
+
+        <p class="msg" :style="{ color: feedbackColor }">
+          {{ feedbackMessage }}
+        </p>
       </div>
-        <p class="msg" :style="{ color: feedbackColor }">{{ feedbackMessage }}</p>
-      
     </div>
 
     <div v-if="showNextButton">
@@ -108,10 +112,9 @@ export default {
 </script>
 
 <style scoped>
-
 .box {
   min-height: 83vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   text-align: left;
   padding: 20px;
@@ -120,28 +123,28 @@ export default {
 }
 
 .question {
-  display:flex;
+  display: flex;
   flex: 1;
   background-color: #189ab4; /* Blue Grotto */
-  padding: 20px;
   border-radius: 10px;
   margin-right: 20px;
-  
 }
-.questionAndImg{
+.questionNumber{
+  margin-left: 30px;
+}
+.questionAndImg {
   margin: 0px 0px 0px 0px;
   display: flex;
-  flex-direction:column ;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width:450px
+  justify-content: space-evenly;
+  width: 450px;
 }
 
 .options {
   display: flex;
   flex-direction: column;
   font-size: 22px;
-  margin: 100px 60px 0px 0px;
 }
 
 h1 {
@@ -150,17 +153,15 @@ h1 {
 }
 
 img {
-  width:250px;
+  width: 250px;
   height: 250px;
 }
-
 
 input[type="radio"] {
   margin-right: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
   vertical-align: middle;
-
 }
 
 label {
@@ -168,8 +169,8 @@ label {
   font-weight: bold;
   margin-bottom: 10px;
 }
-.optionsAndSubmit{
-  margin: 50px 0px 0px 10px;
+.optionSubmitMsg {
+  margin: 130px 20px 0px 100px;
 }
 .submitButton {
   background-color: #75e6da; /* Blue Green */
@@ -196,9 +197,6 @@ label {
 .msg {
   font-size: 25px;
   font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .score {
   font-size: 23px;
@@ -206,7 +204,7 @@ label {
 }
 
 button:hover {
-  background-color: #05445E; /* Navy Blue */
+  background-color: #05445e; /* Navy Blue */
   transition: background-color 0.3s;
 }
 </style>
